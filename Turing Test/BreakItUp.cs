@@ -17,7 +17,12 @@ namespace Turing_Test
         {
             Input = Input.ToLower();
             Word.AddRange(Input.Split(' '));
-            CheckIfQuestion(Word[0]);
+            if (CheckIfQuestion(Word[0]))
+            {
+                    
+            }
+            else
+                Console.WriteLine("Förstog inte riktigt vad du menade");
         }
 
         /// <summary>
