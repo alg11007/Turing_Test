@@ -10,6 +10,9 @@ namespace Turing_Test
     {
         static List<string> Word = new List<string>();
 
+        /// <summary>
+        /// Start of the breaking up process</summary>
+        /// <param name="Input">Input string that is going to be broken up!</param>
         static public void BreakItUpStart(string Input)
         {
             Input = Input.ToLower();
@@ -17,6 +20,9 @@ namespace Turing_Test
             CheckIfQuestion(Word[0]);
         }
 
+        /// <summary>
+        /// Checking if first word is question</summary>
+        /// <param name="firstWord">Word to be checked</param>
         static private bool CheckIfQuestion(string firstWord)
         {
             switch (firstWord)
