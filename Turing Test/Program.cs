@@ -10,7 +10,7 @@ namespace Turing_Test
     {
         static void Main(string[] args)
         {
-            Sentence.BreakItUpSentencesStart(Console.ReadLine());
+            Sentences.BreakItUpSentencesStart(Console.ReadLine());
             Console.Read();
         }
     }

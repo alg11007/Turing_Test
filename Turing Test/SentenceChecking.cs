@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Turing_Test
 {
-    static class Sentence
+    static class Sentences
     {
-        static List<string> Sentences = new List<string>();
+        static List<string> SentencesInInput = new List<string>();
 
         /// <summary>
         /// Start of the breaking up process</summary>
@@ -16,8 +16,8 @@ namespace Turing_Test
         static public void BreakItUpSentencesStart(string Input)
         {
             Input = Input.ToLower();
-            Sentences.AddRange(Input.Split('.',',','?'));
-            foreach (string item in Sentences)
+            SentencesInInput.AddRange(Input.Split('.', ',', '?'));
+            foreach (string item in SentencesInInput)
             {
                 Words.BreakItUpWordsStart(item);
             }
@@ -29,10 +29,10 @@ namespace Turing_Test
         static List<string> WordsInSentence = new List<string>();
         static public void BreakItUpWordsStart(string input)
         {
-            input.Split(' ');
+            WordsInSentence.AddRange(input.Split(' '));
             foreach(string item in WordsInSentence)
             {
-                Console.WriteLine("item");
+                Console.WriteLine(item);
             }
         }
         /// <summary>
