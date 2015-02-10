@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Turing_Test
 {
@@ -16,7 +17,8 @@ namespace Turing_Test
         static public void Break_Up_Sentences_Start(string Input)
         {
             Input = Input.ToLower();
-            SentencesInInput.AddRange(Input.Split('.', ','));
+            //SentencesInInput.AddRange(Input.Split('.', ',','?'));
+            SentencesInInput.AddRange(Regex.Split(Input, @"(?<=[.,?])"));
             foreach (string item in SentencesInInput)
             {
                 Words.Break_Up_Words_Start(item);
@@ -31,13 +33,23 @@ namespace Turing_Test
 
         static public void Break_Up_Words_Start(string input)
         {
+            WordsInSentence.Clear();
+            KeywordsInSentence.Clear();
+
             bool QuestionSentence;
             WordsInSentence.AddRange(input.Split(' '));
             foreach(string item in WordsInSentence)
             {
                 if (item.Contains('?'))
                 {
-                    QuestionSentence = true;                                    // Är det meningen med frågan
+                    Check_Add_KeyWord(item.Substring(0, item.Length - 1));      // Tabort Questionmark.
+                }
+                else if (item.Contains('.'))
+                {
+                    Check_Add_KeyWord(item.Substring(0, item.Length - 1));      // Tabort Questionmark.
+                }
+                else if (item.Contains(','))
+                {
                     Check_Add_KeyWord(item.Substring(0, item.Length - 1));      // Tabort Questionmark.
                 }
                 else
