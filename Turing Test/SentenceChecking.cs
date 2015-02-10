@@ -13,13 +13,13 @@ namespace Turing_Test
         /// <summary>
         /// Start of the breaking up process</summary>
         /// <param name="Input">Input string that is going to be broken up!</param>
-        static public void BreakItUpSentencesStart(string Input)
+        static public void Break_Up_Sentences_Start(string Input)
         {
             Input = Input.ToLower();
             SentencesInInput.AddRange(Input.Split('.', ','));
             foreach (string item in SentencesInInput)
             {
-                Words.BreakItUpWordsStart(item);
+                Words.Break_Up_Words_Start(item);
             }
         }
     }
@@ -27,8 +27,9 @@ namespace Turing_Test
     static class Words
     {
         static List<string> WordsInSentence = new List<string>();
+        static List<string> KeywordsInSentence = new List<string>();
 
-        static public void BreakItUpWordsStart(string input)
+        static public void Break_Up_Words_Start(string input)
         {
             bool QuestionSentence;
             WordsInSentence.AddRange(input.Split(' '));
@@ -40,19 +41,20 @@ namespace Turing_Test
                     item.Substring(0, item.Length - 1);     // Tabort Questionmark.
                 }
                 //Console.WriteLine(item);
-                //CheckIfKeyWord(item);
+                Check_Add_KeyWord(item);
             }
+            Check_Keywords();
         }
 
         /// <summary>
         /// Checking if first word is question</summary>
         /// <param name="firstWord">Word to be checked</param>
-        static private bool CheckIfKeyWord(string inputWord)
+        static private bool Check_Add_KeyWord(string inputWord)
         {
             switch (inputWord)
             {
-                case "vad":
-                    Console.Write("Meningen innehöll 'vad'");
+                case "heter":
+                    KeywordsInSentence.Add(inputWord);
                     return true;
             }
             return false;
