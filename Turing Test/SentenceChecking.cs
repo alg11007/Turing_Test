@@ -6,29 +6,34 @@ using System.Threading.Tasks;
 
 namespace Turing_Test
 {
-    static class BreakItUp
+    static class Sentences
     {
-        static List<string> Word = new List<string>();
+        static List<string> Sentences = new List<string>();
 
         /// <summary>
         /// Start of the breaking up process</summary>
         /// <param name="Input">Input string that is going to be broken up!</param>
-        static public void BreakItUpStart(string Input)
+        static public void BreakItUpSentencesStart(string Input)
         {
             Input = Input.ToLower();
-            Word.AddRange(Input.Split(' '));
-            if (CheckIfQuestion(Word[0]))
+            Sentences.AddRange(Input.Split('.',','));
+            foreach (string item in Sentences)
             {
-                    
+                Words.BreakItUpWordsStart(item);
             }
-            else
-                Console.WriteLine("Förstog inte riktigt vad du menade");
         }
+    }
 
+    static class Words
+    {
+        static public void BreakItUpWordsStart(string input)
+        {
+
+        }
         /// <summary>
         /// Checking if first word is question</summary>
         /// <param name="firstWord">Word to be checked</param>
-        static private bool CheckIfQuestion(string firstWord)
+        static public bool CheckIfKeyWord(string firstWord)
         {
             switch (firstWord)
             {
