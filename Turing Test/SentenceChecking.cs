@@ -49,12 +49,12 @@ namespace Turing_Test
         /// <summary>
         /// Checking if first word is question</summary>
         /// <param name="firstWord">Word to be checked</param>
-        static private bool Check_Add_KeyWord(string inputWord)
+        static private bool Check_Add_KeyWord(string Word)
         {
-            switch (inputWord)
+            switch (Word)
             {
                 case "heter":
-                    KeywordsInSentence.Add(inputWord);
+                    KeywordsInSentence.Add(Word);
                     return true;
             }
             return false;
@@ -62,7 +62,8 @@ namespace Turing_Test
 
         static private bool Check_Keywords()
         {
-
+            if (KeywordsInSentence.Contains("heter") && KeywordsInSentence.Contains("du"))
+                Console.WriteLine("Jag heter bahamas");
             return false;
         }
     }
