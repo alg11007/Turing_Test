@@ -37,11 +37,13 @@ namespace Turing_Test
             {
                 if (item.Contains('?'))
                 {
-                    QuestionSentence = true;                // Är det meningen med frågan
-                    item.Substring(0, item.Length - 1);     // Tabort Questionmark.
+                    QuestionSentence = true;                                    // Är det meningen med frågan
+                    Check_Add_KeyWord(item.Substring(0, item.Length - 1));      // Tabort Questionmark.
                 }
-                //Console.WriteLine(item);
-                Check_Add_KeyWord(item);
+                else
+                {
+                    Check_Add_KeyWord(item);
+                }
             }
             Check_Keywords();
         }
@@ -54,6 +56,9 @@ namespace Turing_Test
             switch (Word)
             {
                 case "heter":
+                    KeywordsInSentence.Add(Word);
+                    return true;
+                case "du":
                     KeywordsInSentence.Add(Word);
                     return true;
             }
