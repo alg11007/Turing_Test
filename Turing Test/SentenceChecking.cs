@@ -59,5 +59,11 @@ namespace Turing_Test
             }
             return false;
         }
+
+        static private bool Check_Keywords()
+        {
+
+            return false;
+        }
     }
 }
