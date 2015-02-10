@@ -67,9 +67,14 @@ namespace Turing_Test
 
         static private bool Check_Keywords()
         {
-            if (KeywordsInSentence.Contains("heter") && KeywordsInSentence.Contains("du"))
+            if (Contains("heter") && Contains("du"))
                 Console.WriteLine("Jag heter bahamas");
             return false;
+        }
+
+        static private bool Contains(string word)
+        {
+            return KeywordsInSentence.Contains(word);
         }
     }
 }
