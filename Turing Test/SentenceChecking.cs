@@ -16,7 +16,7 @@ namespace Turing_Test
         static public void BreakItUpSentencesStart(string Input)
         {
             Input = Input.ToLower();
-            SentencesInInput.AddRange(Input.Split('.', ',', '?'));
+            SentencesInInput.AddRange(Input.Split('.', ','));
             foreach (string item in SentencesInInput)
             {
                 Words.BreakItUpWordsStart(item);
@@ -29,18 +29,23 @@ namespace Turing_Test
         static List<string> WordsInSentence = new List<string>();
         static public void BreakItUpWordsStart(string input)
         {
+            bool QuestionSentence = false;
             WordsInSentence.AddRange(input.Split(' '));
             foreach(string item in WordsInSentence)
             {
-                Console.WriteLine(item);
+                if (item.Contains('?'))     
+                    QuestionSentence = true;        // Är det meningen med frågan
+                item.Substring(0, item.Length - 1); // Tabort Questionmark.
+                //Console.WriteLine(item);
+                //CheckIfKeyWord(item);
             }
         }
         /// <summary>
         /// Checking if first word is question</summary>
         /// <param name="firstWord">Word to be checked</param>
-        static public bool CheckIfKeyWord(string firstWord)
+        static private bool CheckIfKeyWord(string inputWord)
         {
-            switch (firstWord)
+            switch (inputWord)
             {
                 case "vad":
                     Console.Write("De Var en Fråga");
