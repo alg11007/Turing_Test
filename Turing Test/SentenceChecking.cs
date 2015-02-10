@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turing_Test
 {
-    static class Sentences
+    static class Sentence
     {
         static List<string> Sentences = new List<string>();
 
@@ -16,7 +16,7 @@ namespace Turing_Test
         static public void BreakItUpSentencesStart(string Input)
         {
             Input = Input.ToLower();
-            Sentences.AddRange(Input.Split('.',','));
+            Sentences.AddRange(Input.Split('.',',','?'));
             foreach (string item in Sentences)
             {
                 Words.BreakItUpWordsStart(item);
@@ -26,9 +26,14 @@ namespace Turing_Test
 
     static class Words
     {
+        static List<string> WordsInSentence = new List<string>();
         static public void BreakItUpWordsStart(string input)
         {
-
+            input.Split(' ');
+            foreach(string item in WordsInSentence)
+            {
+                Console.WriteLine("item");
+            }
         }
         /// <summary>
         /// Checking if first word is question</summary>
